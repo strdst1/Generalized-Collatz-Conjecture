@@ -1,17 +1,21 @@
 import matplotlib.pyplot as plt
 
-
+#input values 
 a = int(input("Enter a: "))
 b = int(input("Enter b: "))
 
+#to compute first n-1 sequences, here n = 101. 
 for x in range(1, 101):
     storeList = []
     stoppingTime = []
     repeatList = []
     values = []
     i = 0
+    
+    #defining the algorithm.
     while True:
         
+        #checking if the sequence comes out to be unique, terminates if not unique. 
         flag = len(set(storeList)) == len(storeList)
         if flag == 1:
             repeatList.append(x)
@@ -28,9 +32,8 @@ for x in range(1, 101):
             x = int(x / 2)
         else:
             x = a*x + b 
-
-    #values.append(min(storeList))
-    #print(values)
+    
+    #setting limits and plotting. 
     plt.xlim(0, 100)
     plt.ylim(0, 1000)
             
@@ -44,8 +47,4 @@ for x in range(1, 101):
 
 plt.show()
 
-'''
-Steps: Given a number x, if x is even, do x/2; if x is odd, perform ax + b; now put x = ax + b and continue until a repeating pattern starts occuring. As soon as a number in the list
-repeats, terminate. 
 
-'''
